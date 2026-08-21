@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="calculator-card">
+        <h2>Simple Calculator</h2>
+
+        <!-- Inputs -->
+        <div class="input-group">
+            <input type="number" id="first-number" placeholder="Enter first number">
+            <input type="number" id="second-number" placeholder="Enter second number">
+        </div>
+
+        <!-- 8 Buttons (Neat 4x2 Grid) -->
+        <div class="button-grid">
+            <button  id="add-btn">Add (+)</button>
+            <button  id="subtract-btn">Subtract (−)</button>
+            
+            <button id="multiply-btn">Multiply (×)</button>
+            <button id="divide-btn">Divide (÷)</button>
+            
+            <button id="power-btn">Power (xʸ)</button>
+            <button id="root-btn">Root (ʸ√x)</button>
+            
+            <button id="ans-btn" class="btn-ans">Ans</button>
+            <button id="clear-btn" class="btn-clear">Clear (C)</button>
+        </div>
+
+        <!-- Result -->
+        <div id="result-text"></div>
+    </div>
+
+    <script type="module" src="script/eventbutton.js"></script>
+</body>
+</html>

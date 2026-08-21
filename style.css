@@ -1,0 +1,136 @@
+/* --- 1. BASE & RESETS --- */
+* {
+    box-sizing: border-box; /* Includes padding in element width calculations */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #eef2f5;
+    
+    /* Center the calculator card on all screen sizes */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px; /* Prevents card from touching screen edges on phones */
+}
+
+/* --- 2. RESPONSIVE CARD CONTAINER --- */
+.calculator-card {
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+
+    /* RESPONSIVE TRICK: 
+       Takes 100% width on small screens, but stops growing past 420px on desktops */
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    color: #2c3e50;
+}
+
+/* --- 3. INPUT FIELDS --- */
+.input-group {
+    display: flex;
+    flex-direction: column; /* Stacks inputs neatly on top of each other */
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 1rem;
+    border: 2px solid #e1e4e8;
+    border-radius: 8px;
+    outline: none;
+    text-align: center;
+    transition: border-color 0.2s;
+}
+
+/* Highlight input when clicked/tapped */
+input[type="number"]:focus {
+    border-color: #007bff;
+}
+
+/* --- 4. BUTTONS & GRID LAYOUT --- */
+.button-grid {
+    display: grid;
+    /* Automatically creates 2 equal columns on all devices */
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #f8f9fa;
+    color: #333;
+    border: 1px solid #dcdfe3;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    
+    /* Touch target: tall enough to easily tap on mobile screens */
+    min-height: 48px;
+}
+
+/* Make the 'Ans' button span across both columns */
+
+
+/* Hover and Click Effects */
+button:hover {
+    background-color: #e9ecef;
+    border-color: #adb5bd;
+}
+
+button:active {
+    transform: scale(0.75); /* Slight click squeeze effect */
+}
+
+/* --- 5. RESULT TEXT --- */
+#result-text {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #1e293b;
+    min-height: 28px; /* Holds space so the card doesn't jump */
+    word-break: break-word; /* Prevents long numbers from overflowing */
+}
+
+/* --- 6. MEDIA QUERY (For Very Small Phones) --- */
+@media (max-width: 340px) {
+    /* If screen is extremely tiny, stack buttons into 1 column */
+    .button-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .btn-ans {
+        grid-column: span 1;
+    }
+}
+/* Remove 'grid-column: span 2' from btn-ans */
+.btn-ans {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.btn-clear {
+    background-color: #ef4444; /* Soft Red */
+    color: white;
+    border-color: #ef4444;
+}
+
+.btn-clear:hover {
+    background-color: #dc2626;
+}
